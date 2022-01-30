@@ -1,0 +1,13 @@
+{
+  "name": "${localWorkspaceFolderBasename}",
+  "extensions": [],
+  "settings": {
+    "editor.formatOnSave": true
+  },
+  "image": "node:16-alpine",
+  "appPort": "8080:8080",
+  "mounts": [
+    "source=node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "postCreateCommand": "apk update && apk add --no-cache git && npm ci"
+}
